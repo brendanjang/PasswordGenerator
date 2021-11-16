@@ -1,9 +1,16 @@
 import string
 import random
+import time
 
 # prompt for length of pw
-pw_type = input('What is the password for? ')
-pw_length = int(input('Length of password? '))
+pw_type = input('What is the password for?\n')
+pw_length = input('Length of password (numeric)?\n')
+
+# error checking
+while pw_length.isnumeric() is False:
+    pw_length = input('Please input a number...\n')
+
+pw_length = int(pw_length)
 
 # define data to use
 lower = string.ascii_lowercase
@@ -29,4 +36,7 @@ fo.write(pw_type + ': ' + password + '\n')
 
 # close file
 fo.close()
+
+print('Random password generated. Check password.txt file. Closing...')
+time.sleep(3)
 
